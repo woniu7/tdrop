@@ -753,7 +753,10 @@ wid_toggle() {
 			debug "exist map"
 			# visibility will be IsUnMapped on most WMs if the dropdown is open
 			# on another desktop; may also be IsUnviewable
+			if [[ $wm != "compiz" ]]
+			then
 			xdotool set_desktop_for_window "$wid" "$(xdotool get_desktop)"
+			fi
 			# update here if possible so this doesn't cause a delay
 			# between the window being remapped and resized
 			if $monitor_aware; then
